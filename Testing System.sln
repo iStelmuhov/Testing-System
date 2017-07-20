@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingSystem.Model", "TestingSystem.Model\TestingSystem.Model.csproj", "{9593A0F2-11B1-468E-8653-F20D86C5D9DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingSystem.Repository", "TestingSystem.Repository\TestingSystem.Repository.csproj", "{0B909B99-0479-48D9-A403-E1AF50A7AE06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingSystem.Repository.EntityFramework", "TestingSystem.Repository.EntityFramework\TestingSystem.Repository.EntityFramework.csproj", "{91034EB5-7295-4EBE-BDA7-A75C01367DA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingSystem.Dependencies", "TestingSystem.Dependencies\TestingSystem.Dependencies.csproj", "{E3F5D331-8245-4810-8BFE-0C35583DAD99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingSystem.TestApp", "TestingSystem.TestApp\TestingSystem.TestApp.csproj", "{E57B3ACC-B0FB-4C4A-8E13-7662C84DB9FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingSystem.Exceptions", "TestingSystem.Exceptions\TestingSystem.Exceptions.csproj", "{0E15E141-1F28-4BA7-9A48-E5ED9714E57B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9593A0F2-11B1-468E-8653-F20D86C5D9DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9593A0F2-11B1-468E-8653-F20D86C5D9DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9593A0F2-11B1-468E-8653-F20D86C5D9DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9593A0F2-11B1-468E-8653-F20D86C5D9DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B909B99-0479-48D9-A403-E1AF50A7AE06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B909B99-0479-48D9-A403-E1AF50A7AE06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B909B99-0479-48D9-A403-E1AF50A7AE06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B909B99-0479-48D9-A403-E1AF50A7AE06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91034EB5-7295-4EBE-BDA7-A75C01367DA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91034EB5-7295-4EBE-BDA7-A75C01367DA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91034EB5-7295-4EBE-BDA7-A75C01367DA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91034EB5-7295-4EBE-BDA7-A75C01367DA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3F5D331-8245-4810-8BFE-0C35583DAD99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3F5D331-8245-4810-8BFE-0C35583DAD99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3F5D331-8245-4810-8BFE-0C35583DAD99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3F5D331-8245-4810-8BFE-0C35583DAD99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E57B3ACC-B0FB-4C4A-8E13-7662C84DB9FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E57B3ACC-B0FB-4C4A-8E13-7662C84DB9FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E57B3ACC-B0FB-4C4A-8E13-7662C84DB9FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E57B3ACC-B0FB-4C4A-8E13-7662C84DB9FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E15E141-1F28-4BA7-9A48-E5ED9714E57B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E15E141-1F28-4BA7-9A48-E5ED9714E57B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E15E141-1F28-4BA7-9A48-E5ED9714E57B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E15E141-1F28-4BA7-9A48-E5ED9714E57B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.ExceptionHandling.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.PolicyInjection.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Validation.6.0.1304.0\lib\NET45
+	EndGlobalSection
+EndGlobal
