@@ -8,6 +8,11 @@ namespace TestingSystem.Model.Questions
     {
         public IList<TextOption> PossibleAnswers { get; set; }
 
+        public WriteQuestion()
+        {
+            Type = QuestionType.WriteAnswer;
+        }
+
         public override IList<TextOption> GetPossibleAnswers()
         {
             return new List<TextOption>();

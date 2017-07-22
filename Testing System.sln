@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingSystem.TestApp", "Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingSystem.Exceptions", "TestingSystem.Exceptions\TestingSystem.Exceptions.csproj", "{0E15E141-1F28-4BA7-9A48-E5ED9714E57B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingSystem.Service", "TestingSystem.Service\TestingSystem.Service.csproj", "{7CBF0A7D-1B20-4CC9-A766-C3EC5F158705}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{0E15E141-1F28-4BA7-9A48-E5ED9714E57B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E15E141-1F28-4BA7-9A48-E5ED9714E57B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E15E141-1F28-4BA7-9A48-E5ED9714E57B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CBF0A7D-1B20-4CC9-A766-C3EC5F158705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CBF0A7D-1B20-4CC9-A766-C3EC5F158705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CBF0A7D-1B20-4CC9-A766-C3EC5F158705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CBF0A7D-1B20-4CC9-A766-C3EC5F158705}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

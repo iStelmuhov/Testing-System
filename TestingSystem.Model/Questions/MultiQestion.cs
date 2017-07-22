@@ -9,6 +9,12 @@ namespace TestingSystem.Model.Questions
         public virtual ISet<TextOption> WrongAnswers { get; set; }
         public virtual ISet<TextOption> CorrectAnswers { get; set; }
 
+        public MultiQestion()
+        {
+            Type=QuestionType.MultiAnswer;
+            
+        }
+
         public override IList<TextOption> GetPossibleAnswers()
         {
             var answers = WrongAnswers;

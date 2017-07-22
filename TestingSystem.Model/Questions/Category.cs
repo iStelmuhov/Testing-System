@@ -11,7 +11,7 @@ namespace TestingSystem.Model.Questions
 
         public override string ToString()
         {
-            return $"{nameof(Id)}: {Id}, {nameof(Name)}: {Name}, {nameof(Description)}: {Description}, {nameof(Image)}: {Image}";
+            return $"{nameof(Id)}: {Id}, {nameof(Name)}: {Name}, {nameof(Description)}: {Description}";
         }
     }
 }

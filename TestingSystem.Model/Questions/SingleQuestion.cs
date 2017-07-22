@@ -10,6 +10,11 @@ namespace TestingSystem.Model.Questions
         public IList<TextOption> WrongAnswers { get; set; }
         public TextOption CorrectAnswer { get; set; }
 
+        public SingleQuestion()
+        {
+            Type=QuestionType.SingleAnswer;
+        }
+
         public override IList<TextOption> GetPossibleAnswers()
         {
             var answers = WrongAnswers;
