@@ -8,7 +8,7 @@ namespace TestingSystem.Repository.EntityFramework.Configurations
     {
         public TestInfoConfiguration()
         {
-            HasKey(a => a.Id);
+            //HasKey(a => a.Id);
 
             Property(a => a.SubjectId).IsRequired();
         }

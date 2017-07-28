@@ -3,18 +3,23 @@ using System.Collections.Generic;
 
 namespace TestingSystem.Model.Questions
 {
-    public abstract class Question
+    public abstract class Question :Utils.Entity
     {
-        public Guid Id { get; set; }
         public virtual Subject Subject { get; set; }
         public QuestionType Type { get;  set; }
         public string QuestionText { get; set; }
+
         public abstract IList<TextOption> GetPossibleAnswers();
         public abstract bool CheckAnswer(params string[] answers);
 
-        public override string ToString()
+        protected Question(){}
+
+        protected Question(Guid domainId, Subject subject, string questionText)
+            : base(domainId)
         {
-            return $"{nameof(Id)}: {Id}, {nameof(Subject)}: {Subject}, {nameof(Type)}: {Type}, {nameof(QuestionText)}: {QuestionText}";
+            Subject = subject;
+            QuestionText = questionText;
+            Type = QuestionType.None;
         }
     }
 }

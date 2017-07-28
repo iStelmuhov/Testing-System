@@ -24,38 +24,38 @@ namespace TestingSystem.TestApp
 
         public static void GenerateAccounts(TestSystemModel model)
         {
-            model.Accouts.Add(new Account(){ Id = Guid.NewGuid(), Email = "one@mail.ru",FirstName = "fOne",LastName = "lOne",UserRole = Role.User,Password = "12345",Image = new byte[20]});
+            model.Accouts.Add(new Account(Guid.Empty, "fName","lName",Role.User, "1234","mail1@mail.ru",new byte[1]));
         }
 
         public static void GenerateCategories(TestSystemModel model)
         {
-            model.Categories.Add(new Category(){Id = Guid.NewGuid(),Description = "One desc",Name = "First Category"});
+            model.Categories.Add(new Category(Guid.NewGuid(),"Category One","Description of category one",new byte[1]));
 
         }
 
         public static void GenerateSubjects(TestSystemModel model)
         {
-            model.Subjects.Add(new Subject() { Id = Guid.NewGuid(), Description = "One desc", Name = "First Subject",Category = model.Categories[0],MaxDuration = TimeSpan.FromMinutes(20)});
+            model.Subjects.Add(new Subject(Guid.NewGuid(),"Subject one","Description of Subject one",model.Categories[0],TimeSpan.FromMinutes(20),new byte[1]));
 
         }
 
         public static void GenerateQuestions(TestSystemModel model)
         {
-            model.Questions.Add(new SingleQuestion(){Id = Guid.NewGuid(),Subject = model.Subjects[0],Type=QuestionType.SingleAnswer,CorrectAnswer =new TextOption("First correct"),QuestionText = "Question one?",WrongAnswers = new List<TextOption>(){new TextOption("First wrong"),new TextOption("Second Wrong")}});
-            model.Questions.Add(new MultiQestion() { Id = Guid.NewGuid(), Subject = model.Subjects[0], Type = QuestionType.SingleAnswer, CorrectAnswers =new HashSet<TextOption>(){ new TextOption("First correct"), new TextOption("Second correct"), }, QuestionText = "Question one?", WrongAnswers = new HashSet<TextOption>(){ new TextOption("First wrong"), new TextOption("Second Wrong") } });
-            model.Questions.Add(new WriteQuestion() { Id = Guid.NewGuid(), Subject = model.Subjects[0], Type = QuestionType.SingleAnswer, QuestionText = "Question one?", PossibleAnswers = new List<TextOption>() { new TextOption("First possible"), new TextOption("Second possible") } });
+            model.Questions.Add(new SingleQuestion(Guid.NewGuid(),model.Subjects[0],"Single question one?",new List<TextOption>(){new TextOption(Guid.NewGuid(), "Answer one"),new TextOption(Guid.NewGuid(),"Answer two")},new TextOption(Guid.NewGuid(), "Correct answer")));
+            model.Questions.Add(new MultiQestion(Guid.NewGuid(),model.Subjects[0],"Multi question one?",new HashSet<TextOption>() { new TextOption(Guid.NewGuid(), "Answer one"), new TextOption(Guid.NewGuid(), "Answer two") }, new HashSet<TextOption>(){new TextOption(Guid.NewGuid(),"Correct Answer one"),new TextOption(Guid.NewGuid(),"Correct answer two")} ));
+            model.Questions.Add(new WriteQuestion(Guid.NewGuid(),model.Subjects[0],"Write question one?",new List<TextOption>(){new TextOption(Guid.NewGuid(), "Yes"),new TextOption(Guid.NewGuid(),"da")}));
 
         }
 
         public static void GenerateTestSessions(TestSystemModel model)
         {
-            model.TestSessions.Add(new TestSession(){Id = Guid.NewGuid(),Duration = TimeSpan.FromMinutes(12),IsEnded = true,User = model.Accouts[0],StartTime = DateTime.Now,EndTime = DateTime.MaxValue,TestInfo = new TestInfo(){Id = Guid.NewGuid(),SubjectId = model.Subjects[0].Id,Questions = new List<Question>(){model.Questions[0],model.Questions[1],model.Questions[2]}}});
+            model.TestSessions.Add(new TestSession(Guid.NewGuid(),model.Accouts[0].Id,new TestInfo(Guid.NewGuid(),model.Subjects[0].Id,new List<Question>(){model.Questions[0],model.Questions[1],model.Questions[2]})));
 
         }
 
         public static void GenerateTestResults(TestSystemModel model)
         {
-            model.TestResults.Add(new TestResult(){Id = Guid.NewGuid(),Score = 10,UserId = model.Accouts[0].Id,TestSessionId = model.TestSessions[0].Id});
+            model.TestResults.Add(new TestResult(Guid.NewGuid(),model.Accouts[0].Id,model.TestSessions[0].Id,10));
 
         }
     }

@@ -2,25 +2,18 @@
 
 namespace TestingSystem.Model.Questions
 {
-    public class TextOption
+    public class TextOption:Utils.Entity
     {
-
-        public Guid Id { get; set; }
         public string Text { get; set; }
 
-        public TextOption()
+        protected TextOption()
         {
         }
 
-        public TextOption(string text)
+        public TextOption(Guid domainId, string text) 
+            : base(domainId)
         {
-            Id = Guid.NewGuid();
             Text = text;
-        }
-
-        public override string ToString()
-        {
-            return $"{nameof(Id)}: {Id}, {nameof(Text)}: {Text}";
         }
     }
 }

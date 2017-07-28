@@ -45,6 +45,7 @@
     <Compile Include="IDomainEntityService.cs" />
     <Compile Include="ISubjectService.cs" />
     <Compile Include="ITestResultService.cs" />
+    <Compile Include="ITestSessionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

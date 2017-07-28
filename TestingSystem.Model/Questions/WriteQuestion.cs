@@ -8,9 +8,15 @@ namespace TestingSystem.Model.Questions
     {
         public IList<TextOption> PossibleAnswers { get; set; }
 
-        public WriteQuestion()
+        protected WriteQuestion()
         {
             Type = QuestionType.WriteAnswer;
+        }
+
+        public WriteQuestion(Guid domainId, Subject subject, string questionText, IList<TextOption> possibleAnswers) : base(domainId, subject, questionText)
+        {
+            Type=QuestionType.WriteAnswer;
+            PossibleAnswers = possibleAnswers;
         }
 
         public override IList<TextOption> GetPossibleAnswers()

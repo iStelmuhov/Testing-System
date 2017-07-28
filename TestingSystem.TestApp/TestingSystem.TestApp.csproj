@@ -87,6 +87,10 @@
       <Project>{0B909B99-0479-48D9-A403-E1AF50A7AE06}</Project>
       <Name>TestingSystem.Repository</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TestingSystem.Utils\TestingSystem.Utils.csproj">
+      <Project>{47F64B99-06FC-43EF-AEBC-13C4DBC8475D}</Project>
+      <Name>TestingSystem.Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

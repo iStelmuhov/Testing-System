@@ -10,9 +10,17 @@ namespace TestingSystem.Model.Questions
         public IList<TextOption> WrongAnswers { get; set; }
         public TextOption CorrectAnswer { get; set; }
 
-        public SingleQuestion()
+        protected SingleQuestion()
         {
             Type=QuestionType.SingleAnswer;
+        }
+
+        public SingleQuestion(Guid domainId, Subject subject, string questionText, IList<TextOption> wrongAnswers, TextOption correctAnswer) 
+            : base(domainId, subject, questionText)
+        {
+            Type=QuestionType.SingleAnswer;
+            WrongAnswers = wrongAnswers;
+            CorrectAnswer = correctAnswer;
         }
 
         public override IList<TextOption> GetPossibleAnswers()
@@ -27,11 +35,6 @@ namespace TestingSystem.Model.Questions
             return answers == null || answers.Length != 1
                 ? throw new ArgumentException("Invalid answers count!")
                 : answers.Contains(CorrectAnswer.Text);
-        }
-
-        public override string ToString()
-        {
-            return $"{base.ToString()}, {nameof(WrongAnswers)}: {WrongAnswers}, {nameof(CorrectAnswer)}: {CorrectAnswer}";
         }
     }
 }

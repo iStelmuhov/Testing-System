@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{91034EB5-7295-4EBE-BDA7-A75C01367DA9}</ProjectGuid>
+    <ProjectGuid>{9926C7CF-37CD-49AC-B7AE-E6A514FA4334}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestingSystem.Repository.EntityFramework</RootNamespace>
-    <AssemblyName>TestingSystem.Repository.EntityFramework</AssemblyName>
+    <RootNamespace>TestingSystem.Service.Impl</RootNamespace>
+    <AssemblyName>TestingSystem.Service.Impl</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,14 +30,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Interception.3.5.1404.0\lib\Net45\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Interception.3.5.1404.0\lib\Net45\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,45 +55,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configurations\AccountConfiguration.cs" />
-    <Compile Include="Configurations\CategoryConfiguration.cs" />
-    <Compile Include="Configurations\MultiQuestionConfiguration.cs" />
-    <Compile Include="Configurations\QuestionConfiguration.cs" />
-    <Compile Include="Configurations\SingleQuestionConfiguration.cs" />
-    <Compile Include="Configurations\SubjectConfiguration.cs" />
-    <Compile Include="Configurations\TestInfoConfiguration.cs" />
-    <Compile Include="Configurations\TestResultConfigoration.cs" />
-    <Compile Include="Configurations\TestSessionConfiguration.cs" />
-    <Compile Include="Configurations\WriteQuestionConfiguration.cs" />
+    <Compile Include="AccountService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RepositoryFactory.cs" />
-    <Compile Include="RepositoryImplementations\AccountRepository.cs" />
-    <Compile Include="RepositoryImplementations\BasicRepository.cs" />
-    <Compile Include="RepositoryImplementations\CategoryRepository.cs" />
-    <Compile Include="RepositoryImplementations\QuestionRepository.cs" />
-    <Compile Include="RepositoryImplementations\SubjectRepository.cs" />
-    <Compile Include="RepositoryImplementations\TestResultRepository.cs" />
-    <Compile Include="RepositoryImplementations\TestSessionRepository.cs" />
-    <Compile Include="TestSystemDbContext.cs" />
+    <Compile Include="ServiceUtils.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\TestingSystem.Exceptions\TestingSystem.Exceptions.csproj">
+      <Project>{0e15e141-1f28-4ba7-9a48-e5ed9714e57b}</Project>
+      <Name>TestingSystem.Exceptions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TestingSystem.Model\TestingSystem.Model.csproj">
-      <Project>{9593a0f2-11b1-468e-8653-f20d86c5d9dc}</Project>
+      <Project>{9593A0F2-11B1-468E-8653-F20D86C5D9DC}</Project>
       <Name>TestingSystem.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\TestingSystem.Repository\TestingSystem.Repository.csproj">
       <Project>{0b909b99-0479-48d9-a403-e1af50a7ae06}</Project>
       <Name>TestingSystem.Repository</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TestingSystem.Service\TestingSystem.Service.csproj">
+      <Project>{7cbf0a7d-1b20-4cc9-a766-c3ec5f158705}</Project>
+      <Name>TestingSystem.Service</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TestingSystem.Utils\TestingSystem.Utils.csproj">
-      <Project>{47f64b99-06fc-43ef-aebc-13c4dbc8475d}</Project>
+      <Project>{47F64B99-06FC-43EF-AEBC-13C4DBC8475D}</Project>
       <Name>TestingSystem.Utils</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

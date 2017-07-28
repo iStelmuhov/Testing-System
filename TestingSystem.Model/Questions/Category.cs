@@ -2,16 +2,20 @@
 
 namespace TestingSystem.Model.Questions
 {
-    public class Category
+    public class Category :Utils.Entity
     {
-        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public byte[] Image { get; set; }
 
-        public override string ToString()
+        protected Category(){}
+
+        public Category(Guid domainId, string name, string description, byte[] image) 
+            : base(domainId)
         {
-            return $"{nameof(Id)}: {Id}, {nameof(Name)}: {Name}, {nameof(Description)}: {Description}";
+            Name = name;
+            Description = description;
+            Image = image;
         }
     }
 }

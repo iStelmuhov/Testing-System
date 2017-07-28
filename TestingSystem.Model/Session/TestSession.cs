@@ -3,19 +3,51 @@ using TestingSystem.Model.Accounts;
 
 namespace TestingSystem.Model.Session
 {
-    public class TestSession
+    public class TestSession:Utils.Entity
     {
-        public Guid Id { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public TimeSpan Duration { get; set; }
-        public virtual Account User { get; set; }
-        public virtual TestInfo TestInfo { get; set; }
-        public bool IsEnded { get; set; }
+        public virtual Guid UserId { get; set; }
+        public TestInfo TestInfo { get; set; }
+        public bool IsEnded { get; private set; }
+        public bool IsActive { get; private set; }
 
-        public override string ToString()
+        protected TestSession(){}
+
+        public TestSession(Guid domainId, Guid userId, TestInfo testInfo) : base(domainId)
         {
-            return $"{nameof(Id)}: {Id}, {nameof(StartTime)}: {StartTime}, {nameof(EndTime)}: {EndTime}, {nameof(Duration)}: {Duration}, {nameof(User)}: {User}, {nameof(TestInfo)}: {TestInfo}, {nameof(IsEnded)}: {IsEnded}";
+            UserId = userId;
+            TestInfo = testInfo;
+            StartTime=DateTime.Now;
+            EndTime=DateTime.Now;
+            Duration=TimeSpan.Zero;
         }
+
+
+        void Start(DateTime startTime,TimeSpan duration)
+        {
+            if (IsEnded == true)
+                throw new InvalidOperationException("Test ssesion are ended!");
+            if(IsActive == true)
+                throw new InvalidOperationException("Test ssesion are already started!");
+
+            StartTime = startTime;
+            Duration = duration;
+            IsActive = true;
+        }
+
+        void End(DateTime endTime)
+        {
+            if (IsEnded == true)
+                throw new InvalidOperationException("Test ssesion are already ended!");
+            if (IsActive == false)
+                throw new InvalidOperationException("Test ssesion are not started!");
+
+            IsActive = false;
+            IsEnded = true;
+            EndTime = endTime;
+        }
+        
     }
 }

@@ -25,7 +25,7 @@ namespace TestingSystem.Repository.EntityFramework.RepositoryImplementations
 
         public IQueryable<TestSession> FindUserTestSessions(Guid userId)
         {
-            return dbSet.Where(a => a.User.Id == userId);
+            return dbSet.Where(a => a.UserId == userId);
         }
     }
 }

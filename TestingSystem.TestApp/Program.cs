@@ -1,12 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Text;
-using Microsoft.Practices.Unity;
 using TestingSystem.Repository.EntityFramework;
 
 namespace TestingSystem.TestApp
 {
-    class Program
+    static class Program
     {
         static void Main(string[] args)
         {

@@ -9,10 +9,18 @@ namespace TestingSystem.Model.Questions
         public virtual ISet<TextOption> WrongAnswers { get; set; }
         public virtual ISet<TextOption> CorrectAnswers { get; set; }
 
-        public MultiQestion()
+        protected MultiQestion()
         {
             Type=QuestionType.MultiAnswer;
             
+        }
+
+        public MultiQestion(Guid domainId, Subject subject, string questionText, ISet<TextOption> wrongAnswers, ISet<TextOption> correctAnswers)
+            : base(domainId, subject, questionText)
+        {
+            Type=QuestionType.MultiAnswer;
+            WrongAnswers = wrongAnswers;
+            CorrectAnswers = correctAnswers;
         }
 
         public override IList<TextOption> GetPossibleAnswers()
@@ -30,9 +38,5 @@ namespace TestingSystem.Model.Questions
             return true; //CorrectAnswers.SetEquals(answers); TODO
         }
 
-        public override string ToString()
-        {
-            return $"{base.ToString()}, {nameof(WrongAnswers)}: {WrongAnswers}, {nameof(CorrectAnswers)}: {CorrectAnswers}";
-        }
     }
 }

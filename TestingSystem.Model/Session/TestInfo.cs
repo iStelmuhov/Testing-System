@@ -5,12 +5,19 @@ using TestingSystem.Model.Questions;
 
 namespace TestingSystem.Model.Session
 {
-    public class TestInfo
+    public class TestInfo:Utils.Entity
     {
-        public Guid Id { get; set; }
         public Guid SubjectId { get; set; }
         public IList<Question> Questions { get; set; }
         public int QuestionsCount => Questions.Count;
+
+        protected TestInfo(){}
+
+        public TestInfo(Guid domainId, Guid subjectId, IList<Question> questions) : base(domainId)
+        {
+            SubjectId = subjectId;
+            Questions = questions;
+        }
 
         public int CountScore(IDictionary<int,string[]> answers)
         {
@@ -19,9 +26,5 @@ namespace TestingSystem.Model.Session
             return answers.Count(answer => Questions[answer.Key].CheckAnswer(answer.Value));
         }
 
-        public override string ToString()
-        {
-            return $"{nameof(Id)}: {Id}, {nameof(SubjectId)}: {SubjectId}, {nameof(Questions)}: {Questions}, {nameof(QuestionsCount)}: {QuestionsCount}";
-        }
     }
 }

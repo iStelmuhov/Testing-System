@@ -8,14 +8,14 @@ namespace TestingSystem.Repository.EntityFramework.Configurations
         public TestSessionConfiguration()
         {
             HasKey(a => a.Id);
-            HasRequired(a => a.User);
-            HasRequired(a => a.TestInfo);
+            Property(a => a.UserId).IsRequired();
+            HasOptional(a => a.TestInfo);
 
             Property(a => a.Duration).IsOptional();
-            Property(a => a.StartTime).IsRequired();
+            Property(a => a.StartTime).IsOptional();
             Property(a => a.EndTime).IsOptional();
-            Property(a => a.IsEnded).IsRequired();
-            HasRequired(a => a.TestInfo);
+            Property(a => a.IsEnded).IsOptional();
+            
         }
     }
 }

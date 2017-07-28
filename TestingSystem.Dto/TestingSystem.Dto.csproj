@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9593A0F2-11B1-468E-8653-F20D86C5D9DC}</ProjectGuid>
+    <ProjectGuid>{49A3876C-3015-41AC-97EF-7C037E366F2A}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>TestingSystem.Model</RootNamespace>
-    <AssemblyName>TestingSystem.Model</AssemblyName>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TestingSystem.Dto</RootNamespace>
+    <AssemblyName>TestingSystem.Dto</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -31,10 +29,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,25 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Accounts\Account.cs" />
-    <Compile Include="Accounts\Role.cs" />
+    <Compile Include="AccountDto.cs" />
+    <Compile Include="CategoryDto.cs" />
+    <Compile Include="DomainEntityDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Questions\Category.cs" />
-    <Compile Include="Questions\MultiQestion.cs" />
-    <Compile Include="Questions\Question.cs" />
-    <Compile Include="Questions\QuestionType.cs" />
-    <Compile Include="Questions\SingleQuestion.cs" />
-    <Compile Include="Questions\Subject.cs" />
-    <Compile Include="Questions\TextOption.cs" />
-    <Compile Include="Questions\WriteQuestion.cs" />
-    <Compile Include="Session\TestInfo.cs" />
-    <Compile Include="Session\TestSession.cs" />
-    <Compile Include="Session\TestResult.cs" />
+    <Compile Include="QuestionDto.cs" />
+    <Compile Include="SubjectDto.cs" />
+    <Compile Include="TestInfoDto.cs" />
+    <Compile Include="TestResultDto.cs" />
+    <Compile Include="TestSessionDto.cs" />
+    <Compile Include="TextOptionDto.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\TestingSystem.Model\TestingSystem.Model.csproj">
+      <Project>{9593a0f2-11b1-468e-8653-f20d86c5d9dc}</Project>
+      <Name>TestingSystem.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TestingSystem.Utils\TestingSystem.Utils.csproj">
       <Project>{47f64b99-06fc-43ef-aebc-13c4dbc8475d}</Project>
       <Name>TestingSystem.Utils</Name>
