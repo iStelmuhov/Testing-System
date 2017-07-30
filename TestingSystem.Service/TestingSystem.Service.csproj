@@ -43,6 +43,7 @@
     <Compile Include="IAccountService.cs" />
     <Compile Include="ICategoryService.cs" />
     <Compile Include="IDomainEntityService.cs" />
+    <Compile Include="IQuestionService.cs" />
     <Compile Include="ISubjectService.cs" />
     <Compile Include="ITestResultService.cs" />
     <Compile Include="ITestSessionService.cs" />
@@ -52,6 +53,10 @@
     <ProjectReference Include="..\TestingSystem.Dependencies\TestingSystem.Dependencies.csproj">
       <Project>{e3f5d331-8245-4810-8bfe-0c35583dad99}</Project>
       <Name>TestingSystem.Dependencies</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestingSystem.Dto\TestingSystem.Dto.csproj">
+      <Project>{49A3876C-3015-41AC-97EF-7C037E366F2A}</Project>
+      <Name>TestingSystem.Dto</Name>
     </ProjectReference>
     <ProjectReference Include="..\TestingSystem.Exceptions\TestingSystem.Exceptions.csproj">
       <Project>{0e15e141-1f28-4ba7-9a48-e5ed9714e57b}</Project>

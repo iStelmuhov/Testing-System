@@ -1,9 +1,10 @@
 ﻿using System;
+using TestingSystem.Dto;
 using TestingSystem.Model.Questions;
 
 namespace TestingSystem.Service
 {
-    public interface ICategoryService:IDomainEntityService<Category>
+    public interface ICategoryService:IDomainEntityService<CategoryDto>
     {
         Guid Create(string name, string description, byte[] image);
         void Rename(Guid categoryId, string newName);

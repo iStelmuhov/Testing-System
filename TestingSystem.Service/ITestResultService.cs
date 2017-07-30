@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Linq;
+using TestingSystem.Dto;
 using TestingSystem.Model.Session;
 
 namespace TestingSystem.Service
 {
-    public interface ITestResultService:IDomainEntityService<TestResult>
+    public interface ITestResultService:IDomainEntityService<TestResultDto>
     {
         Guid Create(Guid userId,Guid sessionId,int score);
         void ChangeUserId(Guid id, Guid newUserId);
         void ChangeTestSessionId(Guid id, Guid newTestSessionId);
         void ChangeScore(Guid id, int newScore);
-        IQueryable<TestResult> ViewAllUserTestResults(Guid userId);
-        IQueryable<TestResult> ViewAllSubjectTestResults(Guid subjectId);
-        IQueryable<TestResult> FindAllCategoryTestResults(Guid categoryId);
+        IQueryable<TestResultDto> ViewAllUserTestResults(Guid userId);
+        IQueryable<TestResultDto> ViewAllSubjectTestResults(Guid subjectId);
+        IQueryable<TestResultDto> FindAllCategoryTestResults(Guid categoryId);
     }
 }

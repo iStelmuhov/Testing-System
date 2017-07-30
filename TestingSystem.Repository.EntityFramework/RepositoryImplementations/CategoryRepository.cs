@@ -21,5 +21,10 @@ namespace TestingSystem.Repository.EntityFramework.RepositoryImplementations
         {
             return dbSet.Select(a => a.Id);
         }
+
+        public Category FindByName(string name)
+        {
+            return dbSet.SingleOrDefault(a=>a.Name==name);
+        }
     }
 }

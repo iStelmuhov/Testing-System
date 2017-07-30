@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="ApplicationFatalException.cs" />
     <Compile Include="DomainLogic\DomainLogicException.cs" />
+    <Compile Include="DomainLogic\DuplicateNamedEntityException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceValidation\ServiceUnresolvedEntityException.cs" />
     <Compile Include="ServiceValidation\ServiceValidationException.cs" />

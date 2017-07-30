@@ -55,11 +55,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountService.cs" />
+    <Compile Include="Service Implementations\AccountService.cs" />
+    <Compile Include="Service Implementations\CategoryService.cs" />
+    <Compile Include="DtoBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceUtils.cs" />
+    <Compile Include="Service Implementations\SubjectService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TestingSystem.Dto\TestingSystem.Dto.csproj">
+      <Project>{49A3876C-3015-41AC-97EF-7C037E366F2A}</Project>
+      <Name>TestingSystem.Dto</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TestingSystem.Exceptions\TestingSystem.Exceptions.csproj">
       <Project>{0e15e141-1f28-4ba7-9a48-e5ed9714e57b}</Project>
       <Name>TestingSystem.Exceptions</Name>

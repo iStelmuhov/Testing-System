@@ -8,5 +8,9 @@ namespace TestingSystem.Service
         IList<Guid> ViewAll();
 
         T View(Guid domainId);
+
+        void Hide(Guid domainId);
+
+        void Unhide(Guid domainId);
     }
 }

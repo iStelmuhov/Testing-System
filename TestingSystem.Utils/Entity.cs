@@ -11,24 +11,24 @@ namespace TestingSystem.Utils
         public Guid Id { get; private set; }
 
         public long DatabaseId { get; set; }
-        public bool IsHided { get;  private set; }
+        public bool Show { get;  private set; }
 
         protected Entity() { }
 
         protected Entity(Guid domainId)
         {
             this.Id = domainId;
-            IsHided = false;
+            Show = true;
         }
 
         public void Hide()
         {
-            IsHided = true;
+            Show = false;
         }
 
         public void UnHide()
         {
-            IsHided = false;
+            Show = true;
         }
 
         public override bool Equals(object obj)
