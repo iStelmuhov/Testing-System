@@ -6,22 +6,20 @@ namespace TestingSystem.Model.Questions
 {
     public class WriteQuestion :Question
     {
-        public IList<TextOption> PossibleAnswers { get; set; }
+        public ISet<TextOption> PossibleAnswers { get; set; }
 
         protected WriteQuestion()
-        {
-            Type = QuestionType.WriteAnswer;
-        }
+        {}
 
-        public WriteQuestion(Guid domainId, Subject subject, string questionText, IList<TextOption> possibleAnswers) : base(domainId, subject, questionText)
+        public WriteQuestion(Guid domainId, Subject subject, string questionText, ISet<TextOption> possibleAnswers) 
+            : base(domainId, subject, questionText)
         {
-            Type=QuestionType.WriteAnswer;
             PossibleAnswers = possibleAnswers;
         }
 
-        public override IList<TextOption> GetPossibleAnswers()
+        public override IList<string> GetPossibleAnswers()
         {
-            return new List<TextOption>();
+            return PossibleAnswers.Select(a=>a.Text).ToList();
         }
 
         public override bool CheckAnswer(params string[] answers)
@@ -32,6 +30,27 @@ namespace TestingSystem.Model.Questions
             return answers == null || answers.Length != 1
                 ? throw new ArgumentException("Invalid answers count!")
                 : correctAnswers.Contains(answers[0].ToUpper());
+        }
+
+        public override void AddAnswer(TextOption answer)
+        {
+            PossibleAnswers.Add(answer);
+        }
+
+        public override void RemoveAnswer(Guid answerId)
+        {
+            PossibleAnswers.Remove(PossibleAnswers.SingleOrDefault(a => a.Id == answerId));
+        }
+
+        public override void EditAnswer(TextOption answer)
+        {
+            RemoveAnswer(answer.Id);
+            AddAnswer(answer);
+        }
+
+        public override QuestionType GetQuestionType()
+        {
+            return QuestionType.WriteAnswer;
         }
 
         public override string ToString()

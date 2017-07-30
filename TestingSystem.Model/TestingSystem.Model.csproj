@@ -49,10 +49,9 @@
     <Compile Include="Accounts\Role.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Questions\Category.cs" />
-    <Compile Include="Questions\MultiQestion.cs" />
     <Compile Include="Questions\Question.cs" />
     <Compile Include="Questions\QuestionType.cs" />
-    <Compile Include="Questions\SingleQuestion.cs" />
+    <Compile Include="Questions\SimpleQuestion.cs" />
     <Compile Include="Questions\Subject.cs" />
     <Compile Include="Questions\TextOption.cs" />
     <Compile Include="Questions\WriteQuestion.cs" />
@@ -64,6 +63,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TestingSystem.Exceptions\TestingSystem.Exceptions.csproj">
+      <Project>{0E15E141-1F28-4BA7-9A48-E5ED9714E57B}</Project>
+      <Name>TestingSystem.Exceptions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TestingSystem.Utils\TestingSystem.Utils.csproj">
       <Project>{47f64b99-06fc-43ef-aebc-13c4dbc8475d}</Project>
       <Name>TestingSystem.Utils</Name>

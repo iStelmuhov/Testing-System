@@ -49,13 +49,13 @@
   <ItemGroup>
     <Compile Include="Configurations\AccountConfiguration.cs" />
     <Compile Include="Configurations\CategoryConfiguration.cs" />
-    <Compile Include="Configurations\MultiQuestionConfiguration.cs" />
     <Compile Include="Configurations\QuestionConfiguration.cs" />
-    <Compile Include="Configurations\SingleQuestionConfiguration.cs" />
+    <Compile Include="Configurations\SimpleQuestionConfiguration.cs" />
     <Compile Include="Configurations\SubjectConfiguration.cs" />
     <Compile Include="Configurations\TestInfoConfiguration.cs" />
     <Compile Include="Configurations\TestResultConfigoration.cs" />
     <Compile Include="Configurations\TestSessionConfiguration.cs" />
+    <Compile Include="Configurations\TextOptionConfiguration.cs" />
     <Compile Include="Configurations\WriteQuestionConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryFactory.cs" />

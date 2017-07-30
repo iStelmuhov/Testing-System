@@ -8,6 +8,5 @@ namespace TestingSystem.Repository
     public interface IQuestionRepository:IRepository<Question>
     {
         IQueryable<Question> FindAllSubjectQuestions(Guid subjectId);
-        IQueryable<Question> FindAllSubjectQuestions(Guid subjectId, QuestionType questionType);
     }
 }

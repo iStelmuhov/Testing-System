@@ -3,15 +3,14 @@ using TestingSystem.Model.Questions;
 
 namespace TestingSystem.Repository.EntityFramework.Configurations
 {
-    public class MultiQuestionConfiguration:EntityTypeConfiguration<MultiQestion>
+    public class SimpleQuestionConfiguration:EntityTypeConfiguration<SimpleQuestion>
     {
-        public MultiQuestionConfiguration()
+        public SimpleQuestionConfiguration()
         {
             HasKey(a => a.Id);
 
             Property(a => a.QuestionText).IsRequired();
-            HasRequired(a => a.Subject);
-            Property(a => a.Type).IsRequired();
+            HasOptional(a => a.Subject);
 
         }
     }

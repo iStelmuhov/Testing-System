@@ -39,9 +39,9 @@ namespace TestingSystem.Repository.EntityFramework
         {
             modelBuilder.Configurations.Add(new AccountConfiguration());
             modelBuilder.Configurations.Add(new CategoryConfiguration());
-            modelBuilder.Configurations.Add(new MultiQuestionConfiguration());
+            modelBuilder.Configurations.Add(new SimpleQuestionConfiguration());
             modelBuilder.Configurations.Add(new WriteQuestionConfiguration());
-            modelBuilder.Configurations.Add(new SingleQuestionConfiguration());
+            modelBuilder.Configurations.Add(new TextOptionConfiguration());
             modelBuilder.Configurations.Add(new SubjectConfiguration());
             modelBuilder.Configurations.Add(new TestInfoConfiguration());
             modelBuilder.Configurations.Add(new TestSessionConfiguration());

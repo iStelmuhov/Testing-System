@@ -41,9 +41,9 @@ namespace TestingSystem.TestApp
 
         public static void GenerateQuestions(TestSystemModel model)
         {
-            model.Questions.Add(new SingleQuestion(Guid.NewGuid(),model.Subjects[0],"Single question one?",new List<TextOption>(){new TextOption(Guid.NewGuid(), "Answer one"),new TextOption(Guid.NewGuid(),"Answer two")},new TextOption(Guid.NewGuid(), "Correct answer")));
-            model.Questions.Add(new MultiQestion(Guid.NewGuid(),model.Subjects[0],"Multi question one?",new HashSet<TextOption>() { new TextOption(Guid.NewGuid(), "Answer one"), new TextOption(Guid.NewGuid(), "Answer two") }, new HashSet<TextOption>(){new TextOption(Guid.NewGuid(),"Correct Answer one"),new TextOption(Guid.NewGuid(),"Correct answer two")} ));
-            model.Questions.Add(new WriteQuestion(Guid.NewGuid(),model.Subjects[0],"Write question one?",new List<TextOption>(){new TextOption(Guid.NewGuid(), "Yes"),new TextOption(Guid.NewGuid(),"da")}));
+            model.Questions.Add(new SimpleQuestion(Guid.NewGuid(),model.Subjects[0],"Single simple question one?",new HashSet<TextOption>(){ new TextOption(Guid.NewGuid(), "Answer one correct", true), new TextOption(Guid.NewGuid(), "Answer two wrong", false), new TextOption(Guid.NewGuid(), "Answer three wrong", false) }));
+            model.Questions.Add(new SimpleQuestion(Guid.NewGuid(), model.Subjects[0], "Mullti simple question one?", new HashSet<TextOption>() { new TextOption(Guid.NewGuid(), "Answer one correct", true), new TextOption(Guid.NewGuid(), "Answer two correct", true), new TextOption(Guid.NewGuid(), "Answer three wrong", false) }));
+            model.Questions.Add(new WriteQuestion(Guid.NewGuid(), model.Subjects[0], "Write question one?", new HashSet<TextOption>() { new TextOption(Guid.NewGuid(), "da", true), new TextOption(Guid.NewGuid(), "Yes", true), new TextOption(Guid.NewGuid(), "true", true) }));
 
         }
 

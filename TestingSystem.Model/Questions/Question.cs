@@ -6,11 +6,14 @@ namespace TestingSystem.Model.Questions
     public abstract class Question :Utils.Entity
     {
         public virtual Subject Subject { get; set; }
-        public QuestionType Type { get;  set; }
         public string QuestionText { get; set; }
 
-        public abstract IList<TextOption> GetPossibleAnswers();
+        public abstract IList<string> GetPossibleAnswers();
         public abstract bool CheckAnswer(params string[] answers);
+        public abstract void AddAnswer(TextOption answer);
+        public abstract void RemoveAnswer(Guid answerId);
+        public abstract void EditAnswer(TextOption answer);
+        public abstract QuestionType GetQuestionType();
 
         protected Question(){}
 
@@ -19,7 +22,6 @@ namespace TestingSystem.Model.Questions
         {
             Subject = subject;
             QuestionText = questionText;
-            Type = QuestionType.None;
         }
     }
 }

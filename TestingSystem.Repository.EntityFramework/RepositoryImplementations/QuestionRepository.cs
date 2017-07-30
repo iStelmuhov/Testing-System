@@ -28,9 +28,5 @@ namespace TestingSystem.Repository.EntityFramework.RepositoryImplementations
             return dbSet.Where(a => a.Subject.Id == subjectId);
         }
 
-        public IQueryable<Question> FindAllSubjectQuestions(Guid subjectId, QuestionType questionType)
-        {
-            return dbSet.Where(a => a.Subject.Id == subjectId && a.Type == questionType);
-        }
     }
 }

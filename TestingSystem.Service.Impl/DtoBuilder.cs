@@ -24,7 +24,7 @@ namespace TestingSystem.Service.Impl
 
         public static QuestionDto ToDto(this Question question)
         {
-            return new QuestionDto(question.Id,question.QuestionText, question.GetPossibleAnswers().Select(a=>a.Text).ToList(),question.Type,question.Subject.ToDto());
+            return new QuestionDto(question.Id,question.QuestionText, question.GetPossibleAnswers().ToList(),question.GetQuestionType(),question.Subject.ToDto());
         }
 
         public static SubjectDto ToDto(this Subject subject)

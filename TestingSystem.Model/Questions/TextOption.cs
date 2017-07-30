@@ -6,14 +6,17 @@ namespace TestingSystem.Model.Questions
     {
         public string Text { get; set; }
 
+        public bool IsCorrect { get; set; }
+
         protected TextOption()
         {
         }
 
-        public TextOption(Guid domainId, string text) 
+        public TextOption(Guid domainId, string text, bool isCorrect) 
             : base(domainId)
         {
             Text = text;
+            IsCorrect = isCorrect;
         }
     }
 }

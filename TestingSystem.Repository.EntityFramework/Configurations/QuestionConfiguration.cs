@@ -11,7 +11,6 @@ namespace TestingSystem.Repository.EntityFramework.Configurations
 
             Property(a => a.QuestionText).IsRequired();
             HasRequired(a => a.Subject);
-            Property(a => a.Type).IsRequired();
         }
     }
 }
