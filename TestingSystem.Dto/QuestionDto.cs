@@ -12,7 +12,8 @@ namespace TestingSystem.Dto
         public QuestionType Type { get; private set; }
         public SubjectDto Subject { get; private set; }
 
-        public QuestionDto(Guid domainId, string question, IList<string> answers, QuestionType type, SubjectDto subject) : base(domainId)
+        public QuestionDto(Guid domainId, bool show, string question, IList<string> answers, QuestionType type, SubjectDto subject)
+            : base(domainId, show)
         {
             Question = question;
             Answers = answers;

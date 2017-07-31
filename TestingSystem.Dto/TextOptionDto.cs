@@ -6,10 +6,13 @@ namespace TestingSystem.Dto
     public class TextOptionDto:DomainEntityDto<TextOptionDto>
     {
         public string Text { get; private set; }
+        public bool IsCorrect { get; set; }
 
-        public TextOptionDto(Guid domainId, string text) : base(domainId)
+        public TextOptionDto(Guid domainId, bool show, string text, bool isCorrect)
+            : base(domainId, show)
         {
             Text = text;
+            IsCorrect = isCorrect;
         }
 
         protected override IEnumerable<object> GetAttributesToIncludeInEqualityCheck()

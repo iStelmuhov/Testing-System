@@ -12,7 +12,8 @@ namespace TestingSystem.Dto
         public TimeSpan MaxDuration { get; private set; }
         public byte[] Image { get; private set; }
 
-        public SubjectDto(Guid domainId, string name, string description, CategoryDto category, TimeSpan maxDuration, byte[] image) : base(domainId)
+        public SubjectDto(Guid domainId, bool show, string name, string description, CategoryDto category, TimeSpan maxDuration, byte[] image)
+            : base(domainId, show)
         {
             Name = name;
             Description = description;

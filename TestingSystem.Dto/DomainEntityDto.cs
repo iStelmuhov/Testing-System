@@ -6,10 +6,12 @@ namespace TestingSystem.Dto
     {
         public Guid DomainId { get; private set; }
 
-        protected DomainEntityDto(Guid domainId)
-        {
-            this.DomainId = domainId;
-        }
+        public bool Show { get; set; }
 
+        protected DomainEntityDto(Guid domainId, bool show)
+        {
+            DomainId = domainId;
+            Show = show;
+        }
     }
 }

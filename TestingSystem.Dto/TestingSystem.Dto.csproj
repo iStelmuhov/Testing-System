@@ -46,6 +46,7 @@
     <Compile Include="DomainEntityDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionDto.cs" />
+    <Compile Include="EditQuestionDto.cs" />
     <Compile Include="SubjectDto.cs" />
     <Compile Include="TestInfoDto.cs" />
     <Compile Include="TestResultDto.cs" />

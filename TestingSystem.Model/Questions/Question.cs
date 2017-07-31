@@ -14,6 +14,7 @@ namespace TestingSystem.Model.Questions
         public abstract void RemoveAnswer(Guid answerId);
         public abstract void EditAnswer(TextOption answer);
         public abstract QuestionType GetQuestionType();
+        public abstract void ClearAnswers();
 
         protected Question(){}
 

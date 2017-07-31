@@ -53,6 +53,11 @@ namespace TestingSystem.Model.Questions
             return QuestionType.WriteAnswer;
         }
 
+        public override void ClearAnswers()
+        {
+            PossibleAnswers.Clear();
+        }
+
         public override string ToString()
         {
             return $"{base.ToString()}, {nameof(PossibleAnswers)}: {PossibleAnswers}";

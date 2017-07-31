@@ -20,12 +20,12 @@ namespace TestingSystem.Repository.EntityFramework.RepositoryImplementations
 
         public IQueryable<Guid> SelectAllDomainIds()
         {
-            return dbSet.Select(a => a.Id);
+            return dbSet.Where(a=>a.Show).Select(a => a.Id);
         }
 
         public IQueryable<Question> FindAllSubjectQuestions(Guid subjectId)
         {
-            return dbSet.Where(a => a.Subject.Id == subjectId);
+            return dbSet.Where(a => a.Show).Where(a => a.Subject.Id == subjectId);
         }
 
     }

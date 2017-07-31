@@ -51,5 +51,10 @@ namespace TestingSystem.Model.Questions
                 ? throw new NoCorrectAnswersException(QuestionText)
                 : (correctAnswerCount > 1 ? QuestionType.MultiAnswer : QuestionType.SingleAnswer);
         }
+
+        public override void ClearAnswers()
+        {
+            Answers.Clear();
+        }
     }
 }

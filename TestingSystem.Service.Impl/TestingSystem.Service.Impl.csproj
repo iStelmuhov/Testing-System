@@ -59,6 +59,8 @@
     <Compile Include="Service Implementations\CategoryService.cs" />
     <Compile Include="DtoBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service Implementations\QuestionService.cs" />
+    <Compile Include="Service Implementations\TestResultService.cs" />
     <Compile Include="ServiceUtils.cs" />
     <Compile Include="Service Implementations\SubjectService.cs" />
   </ItemGroup>

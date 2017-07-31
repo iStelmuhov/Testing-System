@@ -14,7 +14,8 @@ namespace TestingSystem.Dto
         public bool IsEnded { get; private set; }
         public bool IsActive { get; private set; }
 
-        public TestSessionDto(Guid domainId, DateTime startTime, DateTime endTime, TimeSpan duration, Guid userId, TestInfoDto testInfo, bool isEnded, bool isActive) : base(domainId)
+        public TestSessionDto(Guid domainId, bool show, DateTime startTime, DateTime endTime, TimeSpan duration, Guid userId, TestInfoDto testInfo, bool isEnded, bool isActive)
+            : base(domainId, show)
         {
             StartTime = startTime;
             EndTime = endTime;

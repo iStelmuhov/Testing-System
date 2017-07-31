@@ -11,7 +11,8 @@ namespace TestingSystem.Dto
         public IList<QuestionDto> Questions { get; set; }
         public int QuestionsCount { get; set; }
 
-        public TestInfoDto(Guid domainId, Guid subjectId, IList<QuestionDto> questions, int questionsCount) : base(domainId)
+        public TestInfoDto(Guid domainId, bool show, Guid subjectId, IList<QuestionDto> questions, int questionsCount)
+            : base(domainId, show)
         {
             SubjectId = subjectId;
             Questions = questions;

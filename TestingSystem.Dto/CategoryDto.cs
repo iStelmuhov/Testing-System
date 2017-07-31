@@ -9,7 +9,8 @@ namespace TestingSystem.Dto
         public string Description { get; private set; }
         public byte[] Image { get; private set; }
 
-        public CategoryDto(Guid domainId, string name, string description, byte[] image) : base(domainId)
+        public CategoryDto(Guid domainId, bool show, string name, string description, byte[] image)
+            : base(domainId, show)
         {
             Name = name;
             Description = description;

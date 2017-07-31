@@ -12,8 +12,8 @@ namespace TestingSystem.Dto
         public string Email { get; private set; }
         public byte[] Image { get; private set; }
 
-        public AccountDto(Guid domainId, string firstName, string lastName, Role userRole, string email, byte[] image) 
-            : base(domainId)
+        public AccountDto(Guid domainId, bool show, string firstName, string lastName, Role userRole, string email, byte[] image) 
+            : base(domainId, show)
         {
             FirstName = firstName;
             LastName = lastName;
