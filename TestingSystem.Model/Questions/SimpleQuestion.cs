@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mime;
 using TestingSystem.Exceptions.DomainLogic;
 
 namespace TestingSystem.Model.Questions
@@ -23,9 +24,26 @@ namespace TestingSystem.Model.Questions
             return Answers.Select(a => a.Text).ToList();
         }
 
-        public override bool CheckAnswer(params string[] answers)
+        public override float CheckAnswer(params string[] answers)
         {
-            return answers.All(answer => Answers.SingleOrDefault(a => a.Text == answer).IsCorrect);
+            float score = 0;
+            int correctAnswersCount = Answers.Count(a => a.IsCorrect);
+            if(correctAnswersCount==0)
+                throw new NoCorrectAnswersException(QuestionText);
+
+            float k = (float) 1 / correctAnswersCount;
+
+            foreach (var answer in answers)
+            {
+                var option = Answers.SingleOrDefault(a => a.Text == answer);
+                if (option != null && option.IsCorrect)
+                    score += k;
+            }
+
+            return score;
+
+
+            //return answers.All(answer => Answers.SingleOrDefault(a => a.Text == answer).IsCorrect);
         }
 
         public override void AddAnswer(TextOption answer)

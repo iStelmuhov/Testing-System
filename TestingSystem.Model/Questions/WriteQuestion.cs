@@ -22,14 +22,14 @@ namespace TestingSystem.Model.Questions
             return PossibleAnswers.Select(a=>a.Text).ToList();
         }
 
-        public override bool CheckAnswer(params string[] answers)
+        public override float CheckAnswer(params string[] answers)
         {
             var correctAnswers = PossibleAnswers.Select(a=>a.Text).ToList();
             correctAnswers.ForEach(a => a = a.ToUpper());
 
-            return answers == null || answers.Length != 1
+            return answers?.Length != 1
                 ? throw new ArgumentException("Invalid answers count!")
-                : correctAnswers.Contains(answers[0].ToUpper());
+                : correctAnswers.Contains(answers[0].ToUpper()) ? 1:0;
         }
 
         public override void AddAnswer(TextOption answer)

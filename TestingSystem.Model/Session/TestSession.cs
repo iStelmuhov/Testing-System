@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using TestingSystem.Exceptions.DomainLogic;
 using TestingSystem.Model.Accounts;
 
 namespace TestingSystem.Model.Session
@@ -7,7 +9,7 @@ namespace TestingSystem.Model.Session
     {
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
-        public TimeSpan Duration { get; set; }
+        public TimeSpan SessionDuration { get; set; }
         public virtual Guid UserId { get; set; }
         public TestInfo TestInfo { get; set; }
         public bool IsEnded { get; private set; }
@@ -21,11 +23,11 @@ namespace TestingSystem.Model.Session
             TestInfo = testInfo;
             StartTime=DateTime.Now;
             EndTime=DateTime.Now;
-            Duration=TimeSpan.Zero;
+            SessionDuration=TimeSpan.Zero;
         }
 
 
-        void Start(DateTime startTime,TimeSpan duration)
+        public void Start(DateTime startTime)
         {
             if (IsEnded == true)
                 throw new InvalidOperationException("Test ssesion are ended!");
@@ -33,11 +35,10 @@ namespace TestingSystem.Model.Session
                 throw new InvalidOperationException("Test ssesion are already started!");
 
             StartTime = startTime;
-            Duration = duration;
             IsActive = true;
         }
 
-        void End(DateTime endTime)
+        public float End(DateTime endTime, Dictionary<int, string[]> answers)
         {
             if (IsEnded == true)
                 throw new InvalidOperationException("Test ssesion are already ended!");
@@ -47,6 +48,9 @@ namespace TestingSystem.Model.Session
             IsActive = false;
             IsEnded = true;
             EndTime = endTime;
+
+            return TestInfo.CountScore(answers);
+
         }
         
     }

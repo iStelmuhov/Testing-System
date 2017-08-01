@@ -7,7 +7,7 @@ namespace TestingSystem.Service
 {
     public interface ITestResultService:IDomainEntityService<TestResultDto>
     {
-        Guid Create(Guid userId,Guid sessionId,int score);
+        Guid Create(Guid userId,Guid sessionId, float score);
         void ChangeUserId(Guid id, Guid newUserId);
         void ChangeTestSessionId(Guid id, Guid newTestSessionId);
         void ChangeScore(Guid id, int newScore);

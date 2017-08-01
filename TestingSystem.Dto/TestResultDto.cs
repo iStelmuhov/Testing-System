@@ -7,9 +7,9 @@ namespace TestingSystem.Dto
     {
         public Guid UserId { get; private set; }
         public Guid TestSessionId { get; private set; }
-        public int Score { get; private set; }
+        public float Score { get; private set; }
 
-        public TestResultDto(Guid domainId, bool show, Guid userId, Guid testSessionId, int score)
+        public TestResultDto(Guid domainId, bool show, Guid userId, Guid testSessionId, float score)
             : base(domainId, show)
         {
             UserId = userId;

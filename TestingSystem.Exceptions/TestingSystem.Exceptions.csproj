@@ -43,6 +43,7 @@
     <Compile Include="ApplicationFatalException.cs" />
     <Compile Include="DomainLogic\DomainLogicException.cs" />
     <Compile Include="DomainLogic\DuplicateNamedEntityException.cs" />
+    <Compile Include="DomainLogic\InvalidAnswersCountException.cs" />
     <Compile Include="DomainLogic\NoCorrectAnswersException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceValidation\ServiceUnresolvedEntityException.cs" />

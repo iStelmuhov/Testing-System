@@ -9,7 +9,7 @@ namespace TestingSystem.Model.Questions
         public string QuestionText { get; set; }
 
         public abstract IList<string> GetPossibleAnswers();
-        public abstract bool CheckAnswer(params string[] answers);
+        public abstract float CheckAnswer(params string[] answers);
         public abstract void AddAnswer(TextOption answer);
         public abstract void RemoveAnswer(Guid answerId);
         public abstract void EditAnswer(TextOption answer);

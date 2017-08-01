@@ -45,7 +45,7 @@ namespace TestingSystem.Dependencies
             container.Configure<Interception>()
                 .AddPolicy("ValidationPolicy")
                 .AddMatchingRule<NamespaceMatchingRule>(
-                    new InjectionConstructor("TestingSystem.Service.Implementation", true)
+                    new InjectionConstructor("TestingSystem.Service.Impl", true)
                 )
                 .AddCallHandler(
                     new ValidationCallHandler("", SpecificationSource.Both)
@@ -55,7 +55,7 @@ namespace TestingSystem.Dependencies
             container.RegisterTypes(
                 AllClasses.FromAssemblies(
                     new Assembly[] {
-                        Assembly.Load( "TestingSystem.Service.Implementation" )
+                        Assembly.Load( "TestingSystem.Service.Impl" )
                     }
                 ),
 
@@ -78,7 +78,7 @@ namespace TestingSystem.Dependencies
             container.RegisterTypes(
                 AllClasses.FromAssemblies(
                     new Assembly[] {
-                        Assembly.Load( "Repository.EntityFramework" )
+                        Assembly.Load( "TestingSystem.Repository.EntityFramework" )
                     }
                 ).Where(t => t != typeof(TestSystemDbContext)),
 

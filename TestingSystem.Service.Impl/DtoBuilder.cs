@@ -39,7 +39,7 @@ namespace TestingSystem.Service.Impl
 
         public static TestSessionDto ToDto(this TestSession testSession)
         {
-            return new TestSessionDto(testSession.Id,testSession.Show,testSession.StartTime,testSession.EndTime,testSession.Duration,testSession.UserId,testSession.TestInfo.ToDto(),testSession.IsEnded,testSession.IsActive);
+            return new TestSessionDto(testSession.Id,testSession.Show,testSession.StartTime,testSession.EndTime,testSession.SessionDuration,testSession.UserId,testSession.TestInfo.ToDto(),testSession.IsEnded,testSession.IsActive);
         }
 
         public static TestResultDto ToDto(this TestResult testResult)

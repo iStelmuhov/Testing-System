@@ -36,7 +36,7 @@ namespace TestingSystem.Service.Impl
             tr.UnHide();
         }
 
-        public Guid Create(Guid userId, Guid sessionId, int score)
+        public Guid Create(Guid userId, Guid sessionId, float score)
         {
             TestResult tr=new TestResult(Guid.NewGuid(), userId,sessionId,score);
             testResultRepository.Add(tr);

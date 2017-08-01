@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using TestingSystem.Exceptions.DomainLogic;
 using TestingSystem.Model.Questions;
 
 namespace TestingSystem.Model.Session
@@ -19,11 +20,21 @@ namespace TestingSystem.Model.Session
             Questions = questions;
         }
 
-        public int CountScore(IDictionary<int,string[]> answers)
+        public float CountScore(IDictionary<int,string[]> answers)
         {
             if (answers==null)
                 throw new ArgumentNullException($"Answers can't be null!");
-            return answers.Count(answer => Questions[answer.Key].CheckAnswer(answer.Value));
+
+            float score = 0f;
+            if (answers.Count != QuestionsCount)
+                throw new InvalidAnswersCountException(Id);
+
+            for (int i = 0; i < answers.Count; i++)
+            {
+                score += Questions[i].CheckAnswer(answers[i]);
+            }
+
+            return score;
         }
 
     }
