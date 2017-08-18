@@ -26,6 +26,14 @@ namespace TestingSystem.Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/Radio").Include(
+                "~/Content/RadioButton.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/vibrant").Include(
+                "~/Scripts/vibrant.js"));
+            bundles.Add(new ScriptBundle("~/bundles/main").Include(
+                "~/Scripts/main.js"));
         }
     }
 }

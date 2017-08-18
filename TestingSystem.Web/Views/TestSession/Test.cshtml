@@ -1,0 +1,88 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "title";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/Content/Radio")
+
+<div class="row ">
+    <div class="col-md-3 full-page">
+        <div class="vcenter move-right">
+            <h2 class="main-text">Questions</h2>
+            <div class="thumbnail">
+                <div class="row">
+                    @for (int i = 1; i <= 50; i++)
+                    {
+                        <button class="btn btn-info question-number" onclick="initializeClock('clock','@DateTime.Now.AddMinutes(20)')">@i</button>
+                    }
+                </div>
+            </div>
+            <div id="clock">
+                <span class="hours">00</span>:<span class="minutes">20</span>:<span class="seconds">00</span>
+            </div>
+            <br/>
+            <button class="btn btn-primary center-block">End Test</button>
+        </div>
+    </div>
+    <div class="col-md-9 full-page">
+        <div class="vcenter move-right">
+            <div class="thumbnail test-block" style="padding: 2em;">
+                <h2>Вопрос 1</h2>
+                <div class="question-header lead noselect">Когда вызываются статические конструкторы классов в C#?</div>
+
+                <input type="radio" name="answer" id="answer1"/><label class="noselect" for="answer1">Один раз при первом создании экземпляра класса или при первом обращении к статическим членам класса</label> <br/>
+                <input type="radio" name="answer" id="answer2"/><label for="answer2">После каждого обращения к статическим полям, методам и свойствам</label>   <br/>
+                <input type="radio" name="answer" id="answer3"/><label for="answer3">A</label> <br />
+                <input type="radio" name="answer" id="answer4" /><label for="answer4">B</label> <br />
+                
+                <div class="text-center">
+                    <button class="btn btn-default">Пропустить</button>
+                    <button class="btn btn-success">Ответить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function getTimeRemaining(endTime) {
+        var t = Date.parse(endTime) - Date.parse(new Date());
+        var seconds = Math.floor( (t/1000) % 60 );
+        var minutes = Math.floor( (t/1000/60) % 60 );
+        var hours = Math.floor( (t/(1000*60*60)) % 24 );
+        var days = Math.floor( t/(1000*60*60*24) );
+        return {
+            'total': t,
+            'days': days,
+            'hours': hours,
+            'minutes': minutes,
+            'seconds': seconds
+        };
+    }
+
+    function initializeClock(id, endtime) {
+
+        var clock = document.getElementById(id);
+        var hoursSpan = clock.querySelector('.hours');
+        var minutesSpan = clock.querySelector('.minutes');
+        var secondsSpan = clock.querySelector('.seconds');
+
+        function updateClock(){
+            var t = getTimeRemaining(endtime);
+            hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+            minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+            secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+            if(t.total<=0){
+                clearInterval(timeinterval);
+            }
+        }
+
+        updateClock();
+
+        var timeinterval = setInterval(function(){updateClock()},1000);
+    }
+
+
+</script>

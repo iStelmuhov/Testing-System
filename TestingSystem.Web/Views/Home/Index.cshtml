@@ -1,6 +1,8 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+@*@model IList<TestingSystem.Web.Models.CategoryViewModel>
+*@
 
 <div class="jumbotron">
     <h1>ASP.NET</h1>
@@ -9,23 +11,141 @@
 </div>
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    <div class="col-sm-12" id="categoriesGrid">
+        <div class="row">
+            @for (int i = 0; i < 7; i++)
+            {
+                string classId = "category" + i;
+
+                <div class="col-md-3 col-sm-4 col-xs-6">
+                    <div class="thumbnail text-center category-thumbnail" id="@classId" onmouseover="vibrantColorBG('@classId')" onmouseout="restoreBG('@classId')">
+                        <button class="close"><span class="glyphicon glyphicon-wrench" onclick="showCategoryEditModal()"></span></button>
+                        <a class="btn btn-link" onclick="showDescription('@classId')">
+                            <img class="img-responsive center-block category-img" alt="..." src="~/Content/Images/csharp.png">
+                        </a>
+                    </div>
+                    <br />
+                </div>
+            }
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <div class="thumbnail text-center category-thumbnail" id="addNewCategory" onmouseover="colorBG(this,'#6f137c')" onmouseout="restoreBG('addNewCategory')">
+                    <a class="btn btn-link" onclick="showCategoryCreateModal()">
+                        <img class="img-responsive center-block category-img" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiPg0KPGNpcmNsZSBzdHlsZT0iZmlsbDojQjE0NkMyOyIgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMjU2Ii8+DQo8cGF0aCBzdHlsZT0iZmlsbDojODgxNzk4OyIgZD0iTTI1NiwwdjUxMmMxNDEuMzg1LDAsMjU2LTExNC42MTUsMjU2LTI1NlMzOTcuMzg1LDAsMjU2LDB6Ii8+DQo8cG9seWdvbiBzdHlsZT0iZmlsbDojRjJGMkY0OyIgcG9pbnRzPSIzODQsMjI4LjU3MSAyODMuNDI5LDIyOC41NzEgMjgzLjQyOSwxMjggMjI4LjU3MSwxMjggMjI4LjU3MSwyMjguNTcxIDEyOCwyMjguNTcxICAgMTI4LDI4My40MjkgMjI4LjU3MSwyODMuNDI5IDIyOC41NzEsMzg0IDI4My40MjksMzg0IDI4My40MjksMjgzLjQyOSAzODQsMjgzLjQyOSAiLz4NCjxyZWN0IHg9IjI4My40MjkiIHk9IjIyOC41NzEiIHN0eWxlPSJmaWxsOiNERkRGRTE7IiB3aWR0aD0iMTAwLjU3MSIgaGVpZ2h0PSI1NC44NTciLz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjwvc3ZnPg0K" />
+                    </a>
+                </div>
+                <br />
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div id="aditionalInfoPanel">
     </div>
 </div>
+
+<div class="modal fade" id="newCategoryModal" rolde="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+                <h3 id="modalHeader"><span class="glyphicon glyphicon-bookmark"></span> Создать новую категорию</h3>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="name">Имя</label>
+                                <input type="text" class="form-control" id="name" placeholder="Введите название категории">
+                            </div>
+                            <div class="form-group">
+                                <label for="desc">Описание</label>
+                                <textarea class="form-control" rows="4" id="desc" placeholder="Введите описание"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="btn btn-default center-block">
+                                    Загрузить картинку
+                                    <input type="file" class="form-control" hidden onchange="previewFile('previewImage')" accept="image/*,image/jpeg,image/png">
+                                </label>
+                            <br/>
+                                <div class="thumbnail center-block category-thumbnail" id="previewImageBock" onmouseover="vibrantColorBG('previewImageBock')" onmouseout="restoreBG('previewImageBock')">
+                                    <a class="btn btn-link">
+                                        <img id="previewImage" class="img-responsive category-img" alt="..." src="~/Content/Images/picture.png">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button id="modalOkButton"class="btn btn-success center-block">
+                            <span class="glyphicon glyphicon-plus-sign"></span>
+                            Создать
+                        </button>
+                    </div>
+                    <br/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="newSubjectModal" rolde="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+                <h3><span class="glyphicon glyphicon-bookmark"></span> Создать новый тест</h3>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="exampleInputName">Название теста</label>
+                                <input type="text" class="form-control" id="exampleInputName" placeholder=" Введите имя">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleSelectCategory">Категория</label>
+                                <select class="form-control" id="exampleSelectCategory" required="required">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleSelectDuration">Продолжительность</label>
+                                <select class="form-control" id="exampleSelectDuration" required="required">
+                                    <option>1:00</option>
+                                    <option>5:00</option>
+                                    <option>10:00</option>
+                                    <option>20:00</option>
+                                    <option>30:00</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="exampleInputDescription">Описание теста</label>
+                                <textarea class="form-control" id="exampleInputDescription" rows="6" cols="18" placeholder=" Введите описание"> </textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn btn-success center-block">
+                            <span class="glyphicon glyphicon-plus-sign"></span>
+                            Создать
+                        </button>
+                    </div>
+                    <br/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/vibrant")
+
+<script>
+
+</script>

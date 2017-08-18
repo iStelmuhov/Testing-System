@@ -1,0 +1,148 @@
+﻿@model IList<TestingSystem.Model.Questions.Question>
+@{
+    ViewBag.Title = "title";
+}
+
+
+<div class="row ">
+    <div class="col-md-3 full-page">
+        <div class="vcenter move-right">
+            <h4 class="main-text">Тест: Основы С#</h4>
+            <div class="thumbnail ">
+                <div class="row">
+                    @for (int i = 1; i <= 10; i++)
+                    {
+                        
+                        <a class="btn btn-default" data-toggle="tooltip" title="Вопрос @i: Когда вызываются статические конструкторы классов в C#?">
+                            <p>Вопрос @i: Когда вызываются статические конструкторы классов в C#?</p>
+                        </a>
+                    }
+                </div>
+            </div>
+            <button class="btn btn-info center-block">Добавить вопрос</button>
+            <br />
+            <button class="btn btn-primary center-block">Завершить</button>
+        </div>
+    </div>
+    <div class="col-md-9 full-page">
+        <div class="vcenter move-right">
+            <div class="thumbnail test-block" style="padding: 2em;">
+                <h2>Вопрос 1</h2>
+                <form role="form">
+                    <div class="form-group">
+                        <label for="question">Вопрос:</label>
+                        <input type="text" class="form-control" id="question" placeholder="Введите вопрос">
+                    </div>
+                    <div class="form-group">
+                        <label for="selectType">Вариант вопроса:</label>
+                        <select class="form-control" id="selectType" onchange="buildAnswersMenu(this)">
+                            <option>Одиночный ответ</option>
+                            <option>Множественный ответ</option>
+                            <option>Письменный ответ</option>
+                        </select>
+                    </div>
+
+                    <div id="answers">
+
+                    </div>
+
+                    <div class="text-center">
+                        <a class="btn btn-info" onclick="addAnswerField()">Добавить ответ</a>
+                        <button class="btn btn-success">Сохранить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/vibrant")
+
+<script>
+    function changeradioother() {
+        var other = document.getElementById("other");
+        other.value = document.getElementById("inputother").value;
+    }
+
+    function addAnswerField() {
+        var divGroup = document.createElement('div');
+        divGroup.className = 'form-group';
+
+        switch ($('#selectType')[0].value) {
+        case "Одиночный ответ":
+
+
+            var radio = document.createElement('input');
+            radio.setAttribute('type', 'radio');
+            radio.setAttribute('name', 'answers');
+
+            divGroup.appendChild(radio);
+            break;
+        case "Множественный ответ":
+            var checkbox = document.createElement('input');
+            checkbox.setAttribute('type', 'checkbox');
+            checkbox.setAttribute('name', 'answers');
+            divGroup.appendChild(checkbox);
+            break;
+        case "Письменный ответ":
+            var checkboxW = document.createElement('input');
+            checkboxW.setAttribute('type', 'checkbox');
+            checkboxW.setAttribute('name', 'answers');
+            checkboxW.checked = true;
+            checkboxW.setAttribute('disabled', 'true');
+            divGroup.appendChild(checkboxW);
+            break;
+        default:
+        }
+              
+        var text = document.createElement('input');
+        text.setAttribute('type', 'text');
+        text.setAttribute('placeholder', 'Введите ответ');
+
+        var removeButton = document.createElement('a');
+        removeButton.className = 'btn btn-link';
+        removeButton.onclick = (function() {
+            this.parentNode.remove();
+        });
+        var buttonContent = document.createElement('span');
+        buttonContent.className = 'glyphicon glyphicon-remove';
+        removeButton.appendChild(buttonContent);
+
+        divGroup.appendChild(text);
+        divGroup.appendChild(removeButton);
+        var answ = document.getElementById('answers');
+        answ.appendChild(divGroup);
+    }
+
+    function buildAnswersMenu(sel) {
+        switch (sel.value) {
+            case "Одиночный ответ":
+                $('input[name=answers]').each(function() {
+                    $(this).attr('type', 'radio');
+                    $(this).prop('checked', false);
+                    $(this).prop('disabled', false);
+                });
+                
+                break;
+            case "Множественный ответ":
+                $('input[name=answers]').each(function () {
+                    $(this).attr('type', 'checkbox');
+                    $(this).prop('checked', false);
+                    $(this).prop('disabled', false);
+                });
+                break;
+            case "Письменный ответ":
+                $('input[name=answers]').each(function () {
+                    $(this).attr('type', 'checkbox');
+                    $(this).prop('checked', true);
+                    $(this).prop('disabled', true);
+                });
+                break;
+            default:
+        }
+    }
+
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>

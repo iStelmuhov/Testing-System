@@ -3,6 +3,7 @@ using Microsoft.Practices.Unity;
 using TestingSystem.Dependencies;
 using TestingSystem.Repository.EntityFramework;
 using Unity.Mvc5;
+using TestingSystem.Web.Controllers;
 
 namespace TestingSystem.Web
 {
@@ -18,6 +19,8 @@ namespace TestingSystem.Web
             // e.g. container.RegisterType<ITestService, TestService>();
             var dbContex=new TestSystemDbContext();
             ContainerBoostraper.RegisterTypes(container,dbContex);
+            container.RegisterType<AccountController>(new InjectionConstructor());
+            container.RegisterType<ManageController>(new InjectionConstructor());
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }
